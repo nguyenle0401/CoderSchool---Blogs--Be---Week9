@@ -42,7 +42,7 @@ app.use("/api", indexRouter);
 
 // catch 404 and forard to error handler
 app.use((req, res, next) => {
-  const err = new Error("Not Found");
+  const err = new Error(" Url Not Found");
   err.statusCode = 404;
   next(err);
 });

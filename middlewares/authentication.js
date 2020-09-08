@@ -5,6 +5,7 @@ const authMiddleware = {};
 authMiddleware.loginRequired = (req, res, next) => {
   try {
     const tokenString = req.headers.authorization;
+    console.log(req.headers);
     if (!tokenString) return next(new Error("Token not found"));
     const token = tokenString.replace("Bearer ", "");
     jwt.verify(token, JWT_SECRET_KEY, (err, payload) => {

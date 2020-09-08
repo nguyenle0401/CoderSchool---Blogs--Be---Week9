@@ -5,7 +5,9 @@ const { validationResult } = require("express-validator");
 const validators = {};
 
 validators.validate = (validationArray) => async (req, res, next) => {
+  console.log("ahuhu", validationArray);
   await Promise.all(validationArray.map((validation) => validation.run(req)));
+  console.log("validate", req.body);
   const errors = validationResult(req);
   if (errors.isEmpty()) return next();
 
